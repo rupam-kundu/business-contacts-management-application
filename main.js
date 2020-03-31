@@ -3,6 +3,7 @@
 $(document).ready(function() {
   listContacts();
   $("#updateButton").hide();
+  $("#successAlert").hide();
 });
 
 function listContacts() {
@@ -77,6 +78,7 @@ function getContact(ctl) {
       $("#phoneNumber").val(contact.PhoneNumber);
       $("#addButton").hide();
       $("#updateButton").show();
+      $('#businessContact').focus();
     },
     error: function (request, message, error) {
       handleException(request, message, error);
@@ -117,6 +119,8 @@ function addContact() {
     data: JSON.stringify(Contact),
     success: function() {
       formClear();
+      $("#successAlert").show();
+      $("#successAlert").focus();
       $("#message").html("Business contact has been successfully added.");
       $("#contactsList tbody").remove();
       listContacts();
@@ -142,6 +146,8 @@ function updateContact() {
     data: JSON.stringify(Contact),
     success: function() {
       formClear();
+      $("#successAlert").show();
+      $("#successAlert").focus();
       $("#message").html("Business contact has been successfully updated.");
       $("#contactsList tbody").remove();
       listContacts();
@@ -154,19 +160,30 @@ function updateContact() {
   });
 }
 
+function reset() {
+  formClear();
+  $("#addButton").show();
+  $("#updateButton").hide();
+}
+
 function deleteContact(ctl) {
   var id = $(ctl).data("id");
-  $.ajax({
-    url: "https://t9dgx0hzth.execute-api.eu-west-1.amazonaws.com/Production?EmailAddress=" + id,
-    type: 'DELETE',
-    dataType: 'json',
-    success: function() {
-      $("#message").html("Business contact has been successfully deleted.");
-      $("#contactsList tbody").remove();
-      listContacts();
-    },
-    error: function (request, message, error) {
-      handleException(request, message, error);
-    }
-  });
+  if (confirm("Are you sure you want to delete this business contact?")) {
+    $.ajax({
+      url: "https://t9dgx0hzth.execute-api.eu-west-1.amazonaws.com/Production?EmailAddress=" + id,
+      type: 'DELETE',
+      dataType: 'json',
+      success: function() {
+        $("#successAlert").show();
+        $("#successAlert").focus();
+        $("#message").html("Business contact has been successfully deleted.");
+        $("#contactsList tbody").remove();
+        listContacts();
+      },
+      error: function (request, message, error) {
+        handleException(request, message, error);
+      }
+    });
+  }
+  return false;
 }
