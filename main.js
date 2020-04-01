@@ -29,7 +29,9 @@ function listContacts() {
                   "<button type='button' " +
                   "onclick='getContact(this);' " +
                   "class='btn btn-default' " +
-                  "data-id='" + contact.EmailAddress + "'>" +
+                  "data-id='" + contact.EmailAddress + "'" +
+                  "style='background-color: #BABEBF; color: #000000;'" +
+                  ">" +
                   "<span class='glyphicon glyphicon-edit' />" + 
                   "Edit" +
                   "</button>" +
@@ -38,7 +40,9 @@ function listContacts() {
                   "<button type='button' " +
                   "onclick='deleteContact(this);' " +
                   "class='btn btn-default' " +
-                  "data-id='" + contact.EmailAddress + "'>" +
+                  "data-id='" + contact.EmailAddress + "'" +
+                  "style='background-color: #BABEBF; color: #000000;'" +
+                  ">" +
                   "<span class='glyphicon glyphicon-edit' />" + 
                   "Delete" +
                   "</button>" +

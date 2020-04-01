@@ -12,7 +12,7 @@
     <script src="./popper.min.js"></script>
     <script src="./bootstrap.min.js"></script>
     <script src="./main.js"></script>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4A525D; padding-top: 30px; padding-bottom: 30px;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-image: linear-gradient(#080909, #4B5355); padding-top: 30px; padding-bottom: 30px;">
       <a class="navbar-brand" href="#" style="margin: 0 auto; font-size: xx-large; font-weight: bolder;">Business Contacts Management Application</a>
     </nav>
     <div class="jumbotron" style="background-color: #DAE1EA;">
@@ -28,8 +28,8 @@
     <div class="row" style="margin-top: 1%; margin-bottom: 1%;">
         <div class="col" style="margin: 0 10%;">
           <table id="contactsList"
-                 class="table table-bordered table-condensed table-striped">
-            <thead>
+                 class="table table-bordered table-condensed">
+            <thead style="background-color: #BABEBF;">
               <tr>
                 <th>Email Address</th>
                 <th>Address</th>
@@ -56,9 +56,10 @@
         <div class="row" style="margin-top: 1%; margin-bottom: 1%;">
             <div class="col" style="margin: 0 30%;">
               <div class="card" style="width: 30rem;">
-                <div class="card-header"></div>
+                <div class="card-header" style="background-color: #BABEBF;">
+                  <h4 class="card-title">Business Contact Information</h4>
+                </div>
                 <div class="card-body">
-                    <h4 class="card-title">Business Contact Information</h4>
                     <div class="form-group">
                         <label for="emailAddress">Email Address</label>
                         <input type="email" id="emailAddress"
@@ -90,25 +91,25 @@
                                 class="form-control" />
                     </div>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer" style="background-color: #BABEBF;">
                     <div class="row">
                         <div class="col">
                           <button type="button" id="addButton"
                                   class="btn btn-primary"
                                   onclick="addContact();" 
-                                  style="background-color: #4A525D;">Add Contact</button>
+                                  style="background-color: #221BEA;">Add Contact</button>
                         </div>
                         <div class="col">
                           <button type="button" id="updateButton"
                                   class="btn btn-primary"
                                   onclick="updateContact();"
-                                  style="background-color: #4A525D;">Edit Contact</button>
+                                  style="background-color: #221BEA;">Edit Contact</button>
                         </div>
                         <div class="col">
                           <button type="button" id="resetButton"
                                   class="btn btn-primary"
                                   onclick="reset();"
-                                  style="background-color: #4A525D;">Reset</button>
+                                  style="background-color: #221BEA;">Reset</button>
                       </div>
                     </div>
                 </div>
