@@ -124,6 +124,9 @@ function addContact() {
       $("#message").html("Business contact has been successfully added.");
       $("#contactsList tbody").remove();
       listContacts();
+      setTimeout(function() {
+        $('#successAlert').fadeOut('slow');
+    }, 10000);
     },
     error: function (request, message, error) {
       handleException(request, message, error);
@@ -153,6 +156,9 @@ function updateContact() {
       listContacts();
       $("#addButton").show();
       $("#updateButton").hide();
+      setTimeout(function() {
+        $('#successAlert').fadeOut('slow');
+    }, 10000);
     },
     error: function (request, message, error) {
       handleException(request, message, error);
@@ -179,6 +185,9 @@ function deleteContact(ctl) {
         $("#message").html("Business contact has been successfully deleted.");
         $("#contactsList tbody").remove();
         listContacts();
+        setTimeout(function() {
+          $('#successAlert').fadeOut('slow');
+      }, 10000);
       },
       error: function (request, message, error) {
         handleException(request, message, error);
