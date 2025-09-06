@@ -12,8 +12,26 @@
     <script src="./popper.min.js"></script>
     <script src="./bootstrap.min.js"></script>
     <script src="./main.js"></script>
+    <div id="loginForm" style="margin: 5% auto; width: 300px;">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" />
+          </div>
+          <p id="loginError" style="color: red;"></p>
+          <button type="button" class="btn btn-primary" onclick="login();" style="background-color: #221BEA;">Login</button>
+        </div>
+      </div>
+    </div>
+    <div id="appContent" style="display:none;">
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-image: linear-gradient(#080909, #4B5355); padding-top: 30px; padding-bottom: 30px;">
-      <a class="navbar-brand" href="#" style="margin: 0 auto; font-size: xx-large; font-weight: bolder;">Business Contacts Management Application</a>
+      <a class="navbar-brand" href="#" style="font-size: xx-large; font-weight: bolder;">Business Contacts Management Application</a>
+      <button class="btn btn-secondary" onclick="logout();" style="margin-left: auto; background-color: #BABEBF; color: #000000;">Logout</button>
     </nav>
     <div class="jumbotron" style="background-color: #DAE1EA;">
       <h1 class="display-5" style="text-align: center;">Manage your business contacts</h1>
@@ -115,8 +133,9 @@
                       </div>
                     </div>
                 </div>
-             </div>
             </div>
-          </div>
+           </div>
+         </div>
+    </div>
   </body>
 </html>
