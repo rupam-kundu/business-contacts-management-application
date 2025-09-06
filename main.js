@@ -1,9 +1,16 @@
 /// <reference path="C:\Users\Administrator\BusinessContactsManagementApplication\typings\index.d.ts"/> 
 
 $(document).ready(function() {
-  listContacts();
   $("#updateButton").hide();
   $("#successAlert").hide();
+  if (sessionStorage.getItem("authenticated")) {
+    $("#loginForm").hide();
+    $("#appContent").show();
+    listContacts();
+  } else {
+    $("#appContent").hide();
+    $("#loginForm").show();
+  }
 });
 
 function listContacts() {
@@ -199,4 +206,28 @@ function deleteContact(ctl) {
     });
   }
   return false;
+}
+
+function login() {
+  var username = $("#username").val();
+  var password = $("#password").val();
+  if (username === "admin" && password === "password") {
+    sessionStorage.setItem("authenticated", "true");
+    $("#loginError").text("");
+    $("#loginForm").hide();
+    $("#appContent").show();
+    listContacts();
+    $("#updateButton").hide();
+    $("#successAlert").hide();
+  } else {
+    $("#loginError").text("Invalid credentials");
+  }
+}
+
+function logout() {
+  sessionStorage.removeItem("authenticated");
+  $("#contactsList tbody").remove();
+  formClear();
+  $("#appContent").hide();
+  $("#loginForm").show();
 }
